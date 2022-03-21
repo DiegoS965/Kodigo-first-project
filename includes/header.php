@@ -15,5 +15,7 @@
     <div class="container">
         <a href="index.php" class="navbar-brand">PHP MYSQL CRUD</a>
     </div>
-
+<form>
+    sadasdasd
+</form>
 </nav>
