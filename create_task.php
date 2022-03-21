@@ -27,7 +27,6 @@
                         <input type="date" name="duedateTask" class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" name="save_task" value="Save Task">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">Task saved</div>
                 </form>
             </div>
         </div>
