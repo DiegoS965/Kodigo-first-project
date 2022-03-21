@@ -10,5 +10,6 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a href="index.php" class="navbar-brand">Administrador de tareas v1.0</a>
+        <a href="index.php" class="navbar-brand">Task manager v1.0</a>
+        <a href="welcomePage.php" class="navbar-brand">Welcome page</a>
     </nav>
