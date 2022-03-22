@@ -1,5 +1,6 @@
 <?php ?> <!--incluir base de dato-->
-<?php include("includes/header.php")?>
+<?php include("includes/header.php");
+require_once "controller.php";?>
 <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
@@ -17,10 +18,6 @@
                     <div class="form-group">
                         <label form="">Description_Task</label>
                         <textarea name="descriptionTask" id="" cols="" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label form="">Date_Task</label>"
-                        <input type="date" name="dateTask" class="form-control">
                     </div>
                     <div class="form-group">
                         <label form="">Due_Date_Task</label>"
