@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h1 class="text-center">Task Manager</h1>
+            <h1 class="text-center">Administrador de asignaciones</h1>
             <hr class="height:1px;color: black;background-color:black;">
         </div>
     </div>
@@ -16,29 +16,44 @@
             </button>
         </div>
         <?php session_unset(); }?>
-        <a href="create_task.php" class="btn btn-success">Create New Task</a>
+        <a href="create_task.php" class="btn btn-success">Crear una nueva tarea</a>
     </div>
     <div class="col-md-12">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Actions</th>
-                    <th>TaskName</th>
-                    <th>DescriptionTask</th>
-                    <th>DateTask</th>
-                    <th>DueDateTask</th>
+                    <th>Tarea</th>
+                    <th>Descripción</th>
+                    <th>Fecha de creación</th>
+                    <th>Fecha de entrega</th>
+                    <th>Documento</th>
+                    <th>Calificado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <td>
-                    <a href="update.php" class="btn btn-secondary">
-                        <i class="fas fa-marker"></i>
-                    </a>
-                    <a href="delete.php" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-
-                </td>
+                <?php
+                    $conectar=Connection::connectDB();
+                    $query= "SELECT * FROM tareas";
+                    $result_tasks=mysqli_query($conectar,$query);
+                    while($row=mysqli_fetch_array($result_tasks)){?>
+                <tr>
+                    <td><?php echo $row['Titulo']?></td>
+                    <td><?php echo $row['Descripcion']?></td>
+                    <td><?php echo $row['Fecha_creada']?></td>
+                    <td><?php echo $row['Fecha_entrega']?></td>
+                    <td><?php echo $row['Documento']?></td>
+                    <td><?php echo $row['Calificado']?></td>
+                    <td>
+                        <a href="update.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-secondary">
+                            <i class="fas fa-marker"></i>
+                        </a>
+                        <a href="controller.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                <?php }?>
             </tbody>
         </table>
     </div>

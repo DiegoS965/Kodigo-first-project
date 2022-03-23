@@ -1,4 +1,3 @@
-<?php ?> <!--incluir base de dato-->
 <?php include("includes/header.php");
 require_once "controller.php";?>
 <div class="container">
@@ -12,15 +11,15 @@ require_once "controller.php";?>
             <div class="col-md-5 mx-auto">
                 <form action="save_task.php" method="post">
                     <div class="form-group">
-                        <label form="">Task_Name</label>
+                        <label form="">Titulo de la tarea</label>
                         <input type="text" name="taskName" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label form="">Description_Task</label>
+                        <label form="">Descripción de la tarea</label>
                         <textarea name="descriptionTask" id="" cols="" rows="3" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <label form="">Due_Date_Task</label>"
+                        <label form="">Fecha de entrega de la tarea</label>"
                         <input type="date" name="duedateTask" class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" name="save_task" value="Save Task">

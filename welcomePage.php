@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="text-center">
-        <p>Using this tool you will be able to manage different task to your students.</p>
+        <p>Using this tool you will be able to manage different task to your studends.</p>
         <p>You can log in using the following link.</p>
         <a href="login.php" class="btn btn-primary">Log in</a>
     </div>
