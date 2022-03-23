@@ -48,7 +48,7 @@
                         <a href="update.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-secondary">
                             <i class="fas fa-marker"></i>
                         </a>
-                        <a href="controller.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-danger">
+                        <a href="delete.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-danger">
                             <i class="far fa-trash-alt"></i>
                         </a>
                     </td>

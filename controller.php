@@ -60,7 +60,16 @@
 
         static public function deleteTask()
         {
-
+            
+            $conectar=Connection::connectDB();
+            $id=$_GET['IDTarea'];
+            $query= "DELETE FROM tareas WHERE IDTarea=$id";
+            mysqli_query($conectar,$query);
+                        
+            $_SESSION['message'] = 'Task deleted successfully';
+            $_SESSION['message_type'] = 'danger';
+            header("Location: index.php");
+            
         }
     }
 ?>
