@@ -1,10 +1,11 @@
 <?php include ("includes/header.php")?>
 <?php require_once ("db.php") ?>
 <?php require_once ("loginSystem.php");
-if (isset($_POST['send_credentials']))
-    {
-        $_SESSION['rol'] = LoginSystem::verifyLogin();
-    }
+ if (isset($_POST['send_credentials']))
+{
+    $_SESSION['rol'] = LoginSystem::verifyLogin();
+} 
+//$_SESSION['rol']=="alumno";
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">
@@ -49,6 +50,11 @@ if($_SESSION['rol'] == "alumno"){?>
                     <td><?php echo $row['Fecha_entrega']?></td>
                     <td><?php echo $row['Documento']?></td>
                     <td><?php echo $row['Calificado']?></td>
+                    <td>
+                        <a href="index.php" class="btn btn-primary">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </a>
+                    </td>
                 </tr>
                 <?php }?>
             </tbody>

@@ -21,14 +21,8 @@
         </div>
     </form>
 </div>
-<?php
-    /* if (isset($_POST['send_credentials']))
-    {
-        $checkdata=LoginSystem::verifyLogin();
-         if ($checkdata=='alumno' || $checkdata=='profesor')
-        {
-            header("Location: index.php");
-        } 
-    } */
+<?php   
+    
+    //$_SESSION['rol']=$_SESSION['rol'];
 ?>
 <?php include("includes/footer.php")?>

@@ -11,11 +11,8 @@
     {
         $update=CrudController::updateTask();
     }
+    include("includes/header.php")
 ?>
-
-
-
-<?php include("includes/header.php")?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
