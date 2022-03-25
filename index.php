@@ -1,8 +1,11 @@
 <?php include ("includes/header.php")?>
 <?php require_once ("db.php") ?>
-<?php require_once ("verifyLogin.php");
-$rol= LoginSystem::verifyLogin();
-if($rol == "alumno"){?>
+<?php require_once ("loginSystem.php");
+if (isset($_POST['send_credentials']))
+    {
+        $_SESSION['rol'] = LoginSystem::verifyLogin();
+    }
+if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
@@ -52,7 +55,7 @@ if($rol == "alumno"){?>
         </table>
     </div>
 </div>
-<?php } else if($rol == "profesor"){ ?>
+<?php } else if($_SESSION['rol'] == "profesor"){ ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
