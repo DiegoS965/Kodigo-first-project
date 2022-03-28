@@ -14,9 +14,9 @@
     </div>
     <form action="index.php" method="post">
         <div class="text-center">
-            <input type="text" class="form-control w-25" name="email" placeholder="Enter your email" autofocus>
-            <small id="emailHelp" class="form-text text-muted">Nosotros nunca compartiremos tu correo con alguien más.</small>
-            <input type="password" class="form-control w-25" name="password" placeholder="Enter your password">
+            <input type="text" class="form-control w-25 mx-auto" name="email" placeholder="Enter your email" autofocus>
+            <small id="emailHelp" class="form-text text-muted">Nosotros nunca compartiremos tu correo con alguien más.</small><br><br>
+            <input type="password" class="form-control w-25 mx-auto" name="password" placeholder="Enter your password"><br>
             <input type="submit" name="send_credentials" value="Log in" class="btn btn-primary btn-block">
         </div>
     </form>
