@@ -5,7 +5,7 @@ if (isset($_POST['send_credentials']))
 {
     $_SESSION['rol'] = LoginSystem::verifyLogin();
 }
-
+//$_SESSION['rol']=$_SESSION['rol'];
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">

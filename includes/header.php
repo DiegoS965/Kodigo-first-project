@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php //require_once ($_SERVER['DOCUMENT_ROOT']."/Guias/ProyectoKodigoG4/"."loginSystem.php")?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,13 +13,8 @@
     <nav class="navbar navbar-dark bg-dark">
         <a href="index.php" class="navbar-brand">Administrador de asignaciones v1.0</a>
         <a href="welcomePage.php" class="navbar-brand">Página de bienvenida</a>
-        <form action="header.php" method="post">
+        <form action="login.php" method="post">
             <input type="submit" name=logout_button value="Terminar sesión" class="btn btn-primary btn-block">
         </form>
-        <?php 
-            if (isset($_SESSION['logout_button']))
-            {
-                $logout=LoginSystem::logOut();
-            }
-        ?>
+        
     </nav>

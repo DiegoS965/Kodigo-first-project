@@ -1,5 +1,5 @@
-<?php include ("includes/header.php")?>
-<?php include ("loginSystem.php")?>
+<?php require_once ("includes/header.php")?>
+<?php require_once ("loginSystem.php")?>
 <div class="container">
     <div class="text-center">
         <h1>Por favor iniciar sesión</h1>
@@ -21,8 +21,12 @@
         </div>
     </form>
 </div>
-<?php   
-    
-    //$_SESSION['rol']=$_SESSION['rol'];
+<?php 
+    if (isset($_POST['logout_button']))
+    {
+        $logout=LoginSystem::logOut();
+        //$dir=$_SERVER['DOCUMENT_ROOT']."/Guias/ProyectoKodigoG4/"."login.php";
+        header("Location: welcomePage.php");
+    }
 ?>
 <?php include("includes/footer.php")?>

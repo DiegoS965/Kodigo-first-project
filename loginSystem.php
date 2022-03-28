@@ -55,7 +55,7 @@
         static function logOut()
         {
             $_SESSION['rol']='invitado';
-            header("Location: login.php");
+            return $_SESSION['rol'];
         }
     }
 ?>
