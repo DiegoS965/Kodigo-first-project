@@ -10,6 +10,15 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a href="index.php" class="navbar-brand">Task manager v1.0</a>
-        <a href="welcomePage.php" class="navbar-brand">Welcome page</a>
+        <a href="index.php" class="navbar-brand">Administrador de asignaciones v1.0</a>
+        <a href="welcomePage.php" class="navbar-brand">Página de bienvenida</a>
+        <form action="header.php" method="post">
+            <input type="submit" name=logout_button value="Terminar sesión" class="btn btn-primary btn-block">
+        </form>
+        <?php 
+            if (isset($_SESSION['logout_button']))
+            {
+                $logout=LoginSystem::logOut();
+            }
+        ?>
     </nav>

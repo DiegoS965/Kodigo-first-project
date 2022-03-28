@@ -1,11 +1,11 @@
 <?php include ("includes/header.php")?>
 <?php require_once ("db.php") ?>
 <?php require_once ("loginSystem.php");
- if (isset($_POST['send_credentials']))
+if (isset($_POST['send_credentials']))
 {
     $_SESSION['rol'] = LoginSystem::verifyLogin();
-} 
-//$_SESSION['rol']=="alumno";
+}
+
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">

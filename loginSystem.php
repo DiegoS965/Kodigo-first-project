@@ -8,6 +8,7 @@
             {
                 $userData= array($_POST['email'],$_POST['password']);
             }
+            $_SESSION['rol']='invitado';
 
             $_SESSION['email'] =  $userData[0];
             $_SESSION['password']= $userData[1];
@@ -22,6 +23,17 @@
             
             $R1 = mysqli_fetch_array($result);
             $R1Pro = mysqli_fetch_array($resultPro);
+
+            if ($R1==NULL)
+            {
+                $R1['Email']='None';
+                $R1['Contrasenya']='None';
+            }
+            if ($R1Pro==NULL)
+            {
+                $R1Pro['Email']='None';
+                $R1Pro['Contrasenya']='None';
+            }
 
             if (($R1['Email']==$_SESSION['email']) && ($R1['Contrasenya']==$_SESSION['password']))
             {
@@ -38,6 +50,12 @@
                 header("Location: login.php");
             }
             return $_SESSION['rol'];
+        }
+
+        static function logOut()
+        {
+            $_SESSION['rol']='invitado';
+            header("Location: login.php");
         }
     }
 ?>
