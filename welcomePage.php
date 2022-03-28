@@ -8,7 +8,7 @@
     </div>
     <div class="text-center">
         <p>Utilizando esta herramienta, usted será capáz de asignar tareas a sus estudiantes o entregar sus tareas</p>
-        <p>Puede iniciar sesión siguiendo el siguiente enlace.</p>
+        <p>Puede iniciar sesión siguiendo el siguiente botón.</p>
         <a href="login.php" class="btn btn-primary">Iniciar sesión</a>
     </div>
 </div>    

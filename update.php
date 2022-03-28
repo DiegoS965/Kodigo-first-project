@@ -39,7 +39,7 @@
                 echo $oldDueDate;
             ?>
             <div class="form-group">
-                <input type="date" name="duedateTask" value="<?php $oldDueDate;?>" class="form-control">
+                <input type="date" name="duedateTask" value="<?php $oldDueDate?>" class="form-control">
             </div>
             <small id="dateHelp" class="form-text text-muted">¿Ha sido entregada la tarea?</small>
             <div class="form-group">

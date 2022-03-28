@@ -16,8 +16,9 @@
                 die("Query Failed");
             }
 
-            $_SESSION["message"]='Task saved succesfully';
+            $_SESSION["message"]='Tarea creada correctamente';
             $_SESSION['message_type']='success';
+            $_SESSION['rol']='profesor';
             header("Location: index.php");
         }
 
@@ -53,8 +54,9 @@
             $query = "UPDATE tareas set Titulo = '$title', Descripcion = '$description', Fecha_entrega = '$dueDate', Calificado = '$checkStatus' WHERE IDTarea = $id";
             mysqli_query($conectar,$query);
             
-            $_SESSION['message']='Task updated successfully';
+            $_SESSION['message']='Tarea actualizada correctamente';
             $_SESSION['message_type']='warning';
+            $_SESSION['rol']='profesor';
             header("Location: index.php");
         }
 
@@ -66,8 +68,9 @@
             $query= "DELETE FROM tareas WHERE IDTarea=$id";
             mysqli_query($conectar,$query);
                         
-            $_SESSION['message'] = 'Task deleted successfully';
+            $_SESSION['message'] = 'Tarea eliminada correctamente';
             $_SESSION['message_type'] = 'danger';
+            $_SESSION['rol']='profesor';
             header("Location: index.php");
             
         }
