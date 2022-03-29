@@ -11,10 +11,10 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a href="index.php" class="navbar-brand">Administrador de asignaciones v1.0</a>
-        <a href="welcomePage.php" class="navbar-brand">Página de bienvenida</a>
+        <a href="index.php" class="btn btn-light btn-block">Administrador v1.0</a>
+        <a href="welcomePage.php" class="btn btn-light btn-block">Página de bienvenida</a>
         <form action="login.php" method="post">
-            <input type="submit" name=logout_button value="Terminar sesión" class="btn btn-primary btn-block">
+            <input type="submit" name=logout_button value="Terminar sesión" class="btn btn-light btn-block">
         </form>
         
     </nav>

@@ -7,7 +7,7 @@
             $conectar=Connection::connectDB();
             $title = $_POST['taskName'];
             $description=$_POST['descriptionTask'];
-            $dateDueTask=$_POST['duedateTask'];
+            $dateDueTask=$_POST['duedateTask']." ".$_POST['duetimeTask'];
             $query = "INSERT INTO tareas(Titulo,Descripcion,Fecha_entrega) VALUES ('$title', '$description','$dateDueTask')";
             $result=mysqli_query($conectar,$query);
 
@@ -48,7 +48,7 @@
             $id=$_GET['IDTarea'];
             $title=$_POST['taskName'];
             $description=$_POST['descriptionTask'];
-            $dueDate=$_POST['duedateTask'];
+            $dueDate=$_POST['duedateTask']." ".$_POST['duetimeTask'];
             $checkStatus=$_POST['check'];
 
             $query = "UPDATE tareas set Titulo = '$title', Descripcion = '$description', Fecha_entrega = '$dueDate', Calificado = '$checkStatus' WHERE IDTarea = $id";
@@ -73,6 +73,33 @@
             $_SESSION['rol']='profesor';
             header("Location: index.php");
             
+        }
+
+        static public function uploadTask()
+        {
+            $conectar=Connection::connectDB();
+            $id=$_GET['IDTarea'];
+            $file=$_POST['uploaded_file'];
+
+            $query = "UPDATE tareas set Documento = '$file' WHERE IDTarea = $id";
+            mysqli_query($conectar,$query);
+
+            $_SESSION['message']='Tarea cargada correctamente';
+            $_SESSION['message_type']='warning';
+            $_SESSION['rol']='alumno';
+            header("Location: index.php");
+        }
+
+        static public function downloadTask()
+        {
+            $conectar=Connection::connectDB();
+            $id=$_GET['IDTarea'];
+            $query = "SELECT * FROM tareas WHERE IDTarea=$id";
+            $result = mysqli_query($conectar,$query);
+
+            $file = mysqli_fetch_assoc($result);
+            //$file
+            return $file;
         }
     }
 ?>

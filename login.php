@@ -1,8 +1,8 @@
 <?php require_once ("includes/header.php")?>
 <?php require_once ("loginSystem.php")?>
-<div class="container">
-    <div class="text-center">
-        <h1>Por favor iniciar sesión</h1>
+<div class="container d-grid gap-3">
+    <div class="text-center"><br>
+        <h1>Por favor iniciar sesión</h1><br><br>
         <?php if(isset($_SESSION['login_message'])) {?>
         <div class="alert alert-<?= $_SESSION['login_message_type']?> alert-dismissible fade show" role="alert">
             <?= $_SESSION['login_message']?>

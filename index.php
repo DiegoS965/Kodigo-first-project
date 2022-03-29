@@ -5,7 +5,6 @@ if (isset($_POST['send_credentials']))
 {
     $_SESSION['rol'] = LoginSystem::verifyLogin();
 }
-//$_SESSION['rol']=$_SESSION['rol'];
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">
@@ -51,7 +50,7 @@ if($_SESSION['rol'] == "alumno"){?>
                     <td><?php echo $row['Documento']?></td>
                     <td><?php echo $row['Calificado']?></td>
                     <td>
-                        <a href="index.php" class="btn btn-primary">
+                        <a href="upload_task.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-primary">
                             <i class="fa-solid fa-arrow-up"></i>
                         </a>
                     </td>
@@ -104,7 +103,7 @@ if($_SESSION['rol'] == "alumno"){?>
                     <td><?php echo $row['Descripcion']?></td>
                     <td><?php echo $row['Fecha_creada']?></td>
                     <td><?php echo $row['Fecha_entrega']?></td>
-                    <td><?php echo $row['Documento']?></td>
+                    <td><a href="download_task.php?IDTarea=<?php echo $row['IDTarea']?>"><?php echo $row['Documento']?></a></td>
                     <td><?php echo $row['Calificado']?></td>
                     <td>
                         <a href="update.php?IDTarea=<?php echo $row['IDTarea']?>" class="btn btn-secondary">
