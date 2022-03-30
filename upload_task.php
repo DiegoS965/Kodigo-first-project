@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h1 class="text-center">Administrador de Tareas</h1>
+            <h1 class="text-center display-4">Administrador de Tareas</h1>
             <hr class="height:1px;color: black;background-color:black;">
         </div>
     </div>

@@ -9,7 +9,7 @@ if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h1 class="text-center">Administrador de asignaciones</h1>
+            <h1 class="text-center display-4">Administrador de asignaciones</h1>
             <hr class="height:1px;color: black;background-color:black;">
         </div>
     </div>
@@ -44,7 +44,12 @@ if($_SESSION['rol'] == "alumno"){?>
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>
-                    <td><?php echo $row['Descripcion']?></td>
+                    <td><?php if (strlen($row['Descripcion']) > 30)
+                        {
+                        $row['Descripcion'] = substr($row['Descripcion'], 0, 27) . '...';
+                        }
+                        echo $row['Descripcion']?>
+                    </td>
                     <td><?php echo $row['Fecha_creada']?></td>
                     <td><?php echo $row['Fecha_entrega']?></td>
                     <td><?php echo $row['Documento']?></td>
@@ -64,7 +69,7 @@ if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h1 class="text-center">Administrador de asignaciones</h1>
+            <h1 class="text-center display-4">Administrador de asignaciones</h1>
             <hr class="height:1px;color: black;background-color:black;">
         </div>
     </div>
@@ -100,7 +105,12 @@ if($_SESSION['rol'] == "alumno"){?>
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>
-                    <td><?php echo $row['Descripcion']?></td>
+                    <td><?php if (strlen($row['Descripcion']) > 30)
+                        {
+                        $row['Descripcion'] = substr($row['Descripcion'], 0, 27) . '...';
+                        }
+                        echo $row['Descripcion']?>
+                    </td>
                     <td><?php echo $row['Fecha_creada']?></td>
                     <td><?php echo $row['Fecha_entrega']?></td>
                     <td><a href="download_task.php?IDTarea=<?php echo $row['IDTarea']?>"><?php echo $row['Documento']?></a></td>
