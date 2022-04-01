@@ -1,6 +1,11 @@
 <?php
     session_start();
-    class Connection
+    interface DBConnectionInterface
+    {
+        static public function connectDB();
+    }
+
+    class Connection implements DBConnectionInterface
     {
         static public function connectDB()
         {

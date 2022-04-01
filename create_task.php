@@ -1,5 +1,11 @@
-<?php include("includes/header.php");
-require_once "controller.php";?>
+<?php 
+    include("includes/header.php");
+    require_once "controller.php";
+    if(isset($_POST['save_task']))
+    {
+        $save=CrudController::saveTask();
+    }
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
@@ -9,7 +15,7 @@ require_once "controller.php";?>
     </div>
     <div class="row">
         <div class="col-md-5 mx-auto">
-            <form action="save_task.php" method="post">
+            <form action="create_task.php" method="post">
                 <div class="form-group">
                     <small id="titleHelp" class="form-text text-muted">Titulo de la asignación</small>
                     <input type="text" name="taskName" class="form-control"><br>

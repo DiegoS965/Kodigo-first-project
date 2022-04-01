@@ -1,10 +1,25 @@
 <?php
     require_once "db.php";
-    class CrudController
+
+    interface CrudControllerInterface
     {
-        static public function saveTask()
+        static public function saveTask();
+        static public function getTask();
+        static public function updateTask();
+        static public function deleteTask();
+        static public function tableTask();
+    }
+    interface FileControllerInterface
+    {
+        static public function uploadTask();
+        static public function downloadTask();
+    }
+
+    class CrudController implements CrudControllerInterface
+    {
+        static public function saveTask() 
         {
-            $conectar=Connection::connectDB();
+            $conectar= Connection::connectDB();
             $title = $_POST['taskName'];
             $description=$_POST['descriptionTask'];
             $dateDueTask=$_POST['duedateTask']." ".$_POST['duetimeTask'];
@@ -75,6 +90,17 @@
             
         }
 
+        static public function tableTask()
+        {
+            $conectar=Connection::connectDB();
+            $query= "SELECT * FROM tareas";
+            $result_tasks=mysqli_query($conectar,$query);
+            return $result_tasks;
+        }
+    }
+
+    class FileController implements FileControllerInterface
+    {
         static public function uploadTask()
         {
             $conectar=Connection::connectDB();
@@ -97,7 +123,7 @@
             $query = "SELECT * FROM tareas WHERE IDTarea=$id";
             $result = mysqli_query($conectar,$query);
 
-            $file = mysqli_fetch_assoc($result);
+            $file = mysqli_fetch_object($result);
             //$file
             return $file;
         }

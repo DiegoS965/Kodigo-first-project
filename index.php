@@ -1,5 +1,6 @@
 <?php include ("includes/header.php")?>
 <?php require_once ("db.php") ?>
+<?php require_once ("controller.php") ?>
 <?php require_once ("loginSystem.php");
 if (isset($_POST['send_credentials']))
 {
@@ -22,9 +23,9 @@ if($_SESSION['rol'] == "alumno"){?>
             </button>
         </div>
         <?php session_unset(); }?>
-    </div>
+    </div><br>
     <div class="col-md-12">
-        <table class="table table-hover">
+        <table class="table table-hover bg-light text-dark">
             <thead>
                 <tr>
                     <th>Tarea</th>
@@ -38,9 +39,7 @@ if($_SESSION['rol'] == "alumno"){?>
             </thead>
             <tbody>
                 <?php
-                    $conectar=Connection::connectDB();
-                    $query= "SELECT * FROM tareas";
-                    $result_tasks=mysqli_query($conectar,$query);
+                    $result_tasks=CrudController::tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>
@@ -82,10 +81,10 @@ if($_SESSION['rol'] == "alumno"){?>
             </button>
         </div>
         <?php session_unset(); }?>
-        <a href="create_task.php" class="btn btn-success">Crear una nueva tarea</a>
-    </div>
+        <a href="create_task.php" class="btn btn-success">Crear una nueva tarea</a><br>
+    </div><br>
     <div class="col-md-12">
-        <table class="table table-hover">
+        <table class="table table-hover bg-light text-dark">
             <thead>
                 <tr>
                     <th>Tarea</th>
@@ -99,9 +98,7 @@ if($_SESSION['rol'] == "alumno"){?>
             </thead>
             <tbody>
                 <?php
-                    $conectar=Connection::connectDB();
-                    $query= "SELECT * FROM tareas";
-                    $result_tasks=mysqli_query($conectar,$query);
+                    $result_tasks=CrudController::tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>

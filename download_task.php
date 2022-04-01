@@ -3,22 +3,23 @@
 
     if(isset($_GET['IDTarea']))
     {
-        $file=CrudController::downloadTask();
+        $file=FileController::downloadTask();
         $_SESSION['rol']='profesor';
-        $file=$file['Documento'];
-        echo var_dump($file);
-        if (file_exists($file)) {
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="'.basename($file).'"');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            header('Content-Length: ' . filesize($file));
-            readfile($file);
-            exit;
-        }
-        header("Location: index.php");
+/*         header("Content-type: " . "pdf");
+        ob_clean();
+        flush();
+        echo $file->Documento; */
+        //$file=$file['Documento'];
+        $size=filesize($file->Documento);
+        header("Content-length: $size");
+        $type=explode(".",$file->Documento);
+        $typeF=".".$type[1];
+        header("Content-type: $typeF");
+        header("Content-Type: application/force-download"); 
+        header("Content-Disposition: attachment; filename=$type[0]");
+        header("Content-Type: application/octet-stream;");
+        echo $file->Documento;
+        //header("Location: index.php");
     }
 
 ?>

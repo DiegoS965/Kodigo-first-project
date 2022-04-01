@@ -9,7 +9,7 @@
 
     if(isset($_POST['uploads']))
     {
-        $uploads=CrudController::uploadTask();
+        $uploads=FileController::uploadTask();
     }
 ?>
 
@@ -21,11 +21,11 @@
         </div>
     </div>
     <div class="d-grid gap-3">
-        <form action="upload_task.php?IDTarea=<?php echo $_GET['IDTarea'];?>" method="POST">">
+        <form action="upload_task.php?IDTarea=<?php echo $_GET['IDTarea'];?>" method="POST">
             <div class = "form-group">
-                <h5>Nombre de tarea: <?php echo $search[0]?><br></h5><br>
-                <h5>Descripción de la tarea: <?php echo $search[1]?></h5><br>
-                <h5>Fecha de entrega de la tarea: <?php echo $search[2]?></h5><br>
+                <h5>Nombre de tarea: </h5><?php echo $search[0]?><br><br>
+                <h5>Descripción de la tarea: </h5><?php echo $search[1]?><br><br>
+                <h5>Fecha de entrega de la tarea: </h5><?php echo $search[2]?><br><br>
                 <input type="File" class="btn btn-primary" name = "uploaded_file" value="Subir archivo"><br><br>
                 <input type="submit" class="btn btn-success" name = "uploads">
             </div>
