@@ -3,7 +3,10 @@
     require_once "controller.php";
     if(isset($_POST['save_task']))
     {
-        $save=CrudController::saveTask();
+        //$save=CrudController::saveTask();
+        $save=new CrudController(new Connection);
+        $save->saveTask();
+
     }
 ?>
 <div class="container">

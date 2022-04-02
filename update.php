@@ -3,13 +3,15 @@
     require_once("controller.php");
     if(isset($_GET['IDTarea']))
     {
-        $search=CrudController::getTask();
+        $search=new CrudController(new Connection);
+        $search=$search->getTask();
     }
     
     
     if(isset($_POST['update']))
     {
-        $update=CrudController::updateTask();
+        $update=new CrudController(new Connection);
+        $update->updateTask();
     }
     include("includes/header.php")
 ?>
@@ -30,8 +32,7 @@
             </div>
             <div class="form-group">
                 <small id="descriptionHelp" class="form-text text-muted">Actualice la nueva descripción de la asignación</small>
-                <textarea name="descriptionTask" id="" rows="3" class="form-control" placeholder="Actualizar descripción"><?php echo $search[1];?>
-                </textarea><br>
+                <textarea name="descriptionTask" id="" rows="3" class="form-control" placeholder="Actualizar descripción"><?php echo $search[1]?></textarea><br>
             </div>
             <small id="dateHelp" class="form-text text-muted">Actualice la nueva fecha de entrega.</small>
             <?php 

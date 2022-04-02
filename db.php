@@ -2,14 +2,13 @@
     session_start();
     interface DBConnectionInterface
     {
-        static public function connectDB();
+        public function connectDB();
     }
 
     class Connection implements DBConnectionInterface
     {
-        static public function connectDB()
+        public function connectDB()
         {
-            
             $conn = mysqli_connect(
                 'localhost',
                 'root',
@@ -19,5 +18,4 @@
             return $conn;
         }
     }
-    
 ?>

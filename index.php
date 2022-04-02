@@ -4,7 +4,8 @@
 <?php require_once ("loginSystem.php");
 if (isset($_POST['send_credentials']))
 {
-    $_SESSION['rol'] = LoginSystem::verifyLogin();
+    $_SESSION['rol'] = new LoginSystem(new Connection);
+    $_SESSION['rol']->verifyLogin();
 }
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
@@ -39,7 +40,8 @@ if($_SESSION['rol'] == "alumno"){?>
             </thead>
             <tbody>
                 <?php
-                    $result_tasks=CrudController::tableTask();
+                    $result_tasks=new CrudController(new Connection);
+                    $result_tasks=$result_tasks->tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>
@@ -98,7 +100,8 @@ if($_SESSION['rol'] == "alumno"){?>
             </thead>
             <tbody>
                 <?php
-                    $result_tasks=CrudController::tableTask();
+                    $result_tasks=new CrudController(new Connection);
+                    $result_tasks=$result_tasks->tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
                     <td><?php echo $row['Titulo']?></td>

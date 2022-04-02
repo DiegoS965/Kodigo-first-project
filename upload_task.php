@@ -3,13 +3,15 @@
 
     if(isset($_GET['IDTarea']))
     {
-        $search=CrudController::getTask();
+        $search=new CrudController(new Connection);
+        $search=$search->getTask();
     }
 
 
     if(isset($_POST['uploads']))
     {
-        $uploads=FileController::uploadTask();
+        $uploads=new FileController(new Connection);
+        $uploads->uploadTask();
     }
 ?>
 

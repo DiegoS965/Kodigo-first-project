@@ -3,7 +3,9 @@
 
     if(isset($_GET['IDTarea']))
     {
-        $file=FileController::downloadTask();
+        $file=new FileController(new Connection);
+        $file->downloadTask();
+        
         $_SESSION['rol']='profesor';
 /*         header("Content-type: " . "pdf");
         ob_clean();

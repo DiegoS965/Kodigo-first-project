@@ -25,7 +25,8 @@
 <?php 
     if (isset($_POST['logout_button']))
     {
-        $logout=LoginSystem::logOut();
+        $logout=new LoginSystem(new Connection);
+        $logout->logOut();
         header("Location: welcomePage.php");
     }
 ?>

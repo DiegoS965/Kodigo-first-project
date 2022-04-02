@@ -1,8 +1,21 @@
 <?php
     require_once "db.php";
-    class LoginSystem
+    interface LoginSystemInterface
     {
-        static public function verifyLogin()
+        public function verifyLogin();
+        public function logOut();
+    }
+
+    class LoginSystem implements LoginSystemInterface
+    {
+        private $conectar;
+        
+        public function __construct(DBConnectionInterface $conectar)
+        {
+            $this->conectar= $conectar;
+        }
+
+        public function verifyLogin()
         {
             if (isset($_POST['send_credentials']))
             {
@@ -13,13 +26,13 @@
             $_SESSION['email'] =  $userData[0];
             $_SESSION['password']= $userData[1];
             $usuario = (isset($_SESSION['email'] )) ? $_SESSION['email'] :'' ;
-            $conectar=Connection::connectDB();
+            $con=$this->conectar->connectDB();
 
             $query = "SELECT * FROM alumnos WHERE Email = '$usuario'";
             $queryPro = "SELECT * FROM profesor_admin WHERE Email = '$usuario'";
             
-            $result=mysqli_query($conectar,$query);
-            $resultPro=mysqli_query($conectar,$queryPro);
+            $result=mysqli_query($con,$query);
+            $resultPro=mysqli_query($con,$queryPro);
             
             $R1 = mysqli_fetch_array($result);
             $R1Pro = mysqli_fetch_array($resultPro);
@@ -52,7 +65,7 @@
             return $_SESSION['rol'];
         }
 
-        static function logOut()
+        public function logOut()
         {
             $_SESSION['rol']='invitado';
             return $_SESSION['rol'];
