@@ -44,7 +44,11 @@ if($_SESSION['rol'] == "alumno"){?>
                     $result_tasks=$result_tasks->tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
-                    <td><?php echo $row['Titulo']?></td>
+                    <td><?php if (strlen($row['Titulo']) > 30)
+                        {
+                        $row['Titulo'] = substr($row['Titulo'], 0, 27) . '...';
+                        }
+                        echo $row['Titulo']?></td>
                     <td><?php if (strlen($row['Descripcion']) > 30)
                         {
                         $row['Descripcion'] = substr($row['Descripcion'], 0, 27) . '...';
@@ -104,7 +108,11 @@ if($_SESSION['rol'] == "alumno"){?>
                     $result_tasks=$result_tasks->tableTask();
                     while($row=mysqli_fetch_array($result_tasks)){?>
                 <tr>
-                    <td><?php echo $row['Titulo']?></td>
+                    <td><?php if (strlen($row['Titulo']) > 30)
+                        {
+                        $row['Titulo'] = substr($row['Titulo'], 0, 27) . '...';
+                        }
+                        echo $row['Titulo']?></td>
                     <td><?php if (strlen($row['Descripcion']) > 30)
                         {
                         $row['Descripcion'] = substr($row['Descripcion'], 0, 27) . '...';
