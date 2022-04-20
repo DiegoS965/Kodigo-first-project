@@ -6,6 +6,7 @@
         $save=new StudentCrudController(new Connection);
         $newData= array($_POST['studentName'],$_POST['studentEmail'],$_POST['studentPassword']);
         $save->saveStudent($newData);
+        header("Location: ../index.php");
     }
 ?>
 <div class="container">

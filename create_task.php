@@ -6,6 +6,7 @@
         $save=new CrudController(new Connection);
         $newData= array($_POST['taskName'],$_POST['descriptionTask'],$_POST['duedateTask']." ".$_POST['duetimeTask']);
         $save->saveTask($newData);
+        header("Location: index.php");
     }
 ?>
 <div class="container">

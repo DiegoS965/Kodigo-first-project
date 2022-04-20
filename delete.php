@@ -4,5 +4,6 @@
     {
         $delete=new CrudController(new Connection);
         $delete->deleteTask($_GET['IDTarea']);
+        header("Location: index.php");
     }
 ?>

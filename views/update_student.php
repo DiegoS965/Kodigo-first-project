@@ -12,6 +12,7 @@
         $update=new StudentCrudController(new Connection);
         $updatedStudentData=array($_POST['studentName'],$_POST['updatedEmail'],$_POST['updatedPassword']);
         $update->updateStudent($_GET['IDAlumno'],$updatedStudentData);
+        header("Location: ../index.php");
     }
 ?>
 <div class="container">

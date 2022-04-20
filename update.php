@@ -12,6 +12,7 @@
         $update=new CrudController(new Connection);
         $updatedTaskData=array($_POST['taskName'],$_POST['descriptionTask'],$_POST['duedateTask']." ".$_POST['duetimeTask'],$_POST['check']);
         $update->updateTask($_GET['IDTarea'],$updatedTaskData);
+        header("Location: index.php");
     }
 ?>
 <div class="container">

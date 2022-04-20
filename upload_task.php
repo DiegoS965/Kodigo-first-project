@@ -11,6 +11,7 @@
     {
         $uploads=new FileController(new Connection);
         $uploads->uploadTask($_GET['IDTarea'],$_POST['uploaded_file']);
+        header("Location: index.php");
     }
 ?>
 

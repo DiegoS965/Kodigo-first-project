@@ -14,15 +14,7 @@
         public function uploadTask($taskID,$file);
         public function downloadTask($taskID);
     }
-    /* interface StudentCrudControllerInterface
-    {
-        public function saveStudent($newStudentData);
-        public function getStudent($studentID);
-        public function updateStudent($studentID,$updatedStudentData);
-        public function deleteStudent($studentID);
-        public function tableStudent();
-    } */
-    
+
     class CrudController implements CrudControllerInterface
     {
         private $conectar;
@@ -46,7 +38,7 @@
             $_SESSION["message"]='Tarea creada correctamente';
             $_SESSION['message_type']='success';
             $_SESSION['rol']='profesor';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
 
         public function getTask($taskID)
@@ -78,7 +70,7 @@
             $_SESSION['message']='Tarea actualizada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='profesor';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
 
         public function deleteTask($taskID)
@@ -91,7 +83,7 @@
             $_SESSION['message'] = 'Tarea eliminada correctamente';
             $_SESSION['message_type'] = 'danger';
             $_SESSION['rol']='profesor';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
 
         public function tableTask()
@@ -120,13 +112,13 @@
 
             if(!$result)
             {
-                die("Consulta fallada");
+                die("Consulta fallada, no pueden haber duplicados");
             }
 
             $_SESSION["message"]='Cuenta de alumno creada correctamente';
             $_SESSION['message_type']='success';
             $_SESSION['rol']='profesor';
-            header("Location: ../index.php");
+            //header("Location: ../index.php");
         }
         public function getStudent($studentID)
         {
@@ -155,7 +147,7 @@
             $_SESSION['message']='Cuenta de alumno actualizada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='profesor';
-            header("Location: view_student.php");
+            //header("Location: view_student.php");
         }
         public function deleteStudent($studentID)
         {
@@ -167,7 +159,7 @@
             $_SESSION['message'] = 'Cuenta de alumno eliminada correctamente';
             $_SESSION['message_type'] = 'danger';
             $_SESSION['rol']='profesor';
-            header("Location: ../index.php");
+            //header("Location: ../index.php");
         }
         public function tableStudent()
         {
@@ -197,7 +189,7 @@
             $_SESSION['message']='Tarea cargada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='alumno';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
 
         public function downloadTask($taskID)
