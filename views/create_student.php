@@ -36,6 +36,6 @@
             </form>
         </div>
     </div>
-    <a href="../index.php" class="btn btn-primary">Volver</a>
+    <a href="../index.php" class="btn btn-primary" <?php $_SESSION['rol']='profesor'?>>Volver</a>
 </div>
 <?php include("../includes/footer.php")?>

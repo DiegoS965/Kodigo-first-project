@@ -47,7 +47,7 @@
                 <?php }?>
             </tbody>
         </table>
-        <a href="../index.php" class="btn btn-primary">Volver</a>
+        <a href="../index.php" class="btn btn-primary" <?php $_SESSION['rol']='profesor'?>>Volver</a>
     </div>
 </div>
 <?php include("../includes/footer.php")?>

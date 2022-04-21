@@ -4,5 +4,6 @@
     {
         $delete=new StudentCrudController(new Connection);
         $delete->deleteStudent($_GET['IDAlumno']);
+        header("Location: view_student.php");
     }
 ?>
