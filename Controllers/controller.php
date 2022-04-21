@@ -38,7 +38,6 @@
             $_SESSION["message"]='Tarea creada correctamente';
             $_SESSION['message_type']='success';
             $_SESSION['rol']='profesor';
-            //header("Location: index.php");
         }
 
         public function getTask($taskID)
@@ -70,7 +69,6 @@
             $_SESSION['message']='Tarea actualizada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='profesor';
-            //header("Location: index.php");
         }
 
         public function deleteTask($taskID)
@@ -83,7 +81,6 @@
             $_SESSION['message'] = 'Tarea eliminada correctamente';
             $_SESSION['message_type'] = 'danger';
             $_SESSION['rol']='profesor';
-            //header("Location: index.php");
         }
 
         public function tableTask()
@@ -118,7 +115,6 @@
             $_SESSION["message"]='Cuenta de alumno creada correctamente';
             $_SESSION['message_type']='success';
             $_SESSION['rol']='profesor';
-            //header("Location: ../index.php");
         }
         public function getStudent($studentID)
         {
@@ -147,7 +143,6 @@
             $_SESSION['message']='Cuenta de alumno actualizada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='profesor';
-            //header("Location: view_student.php");
         }
         public function deleteStudent($studentID)
         {
@@ -159,7 +154,6 @@
             $_SESSION['message'] = 'Cuenta de alumno eliminada correctamente';
             $_SESSION['message_type'] = 'danger';
             $_SESSION['rol']='profesor';
-            //header("Location: ../index.php");
         }
         public function tableStudent()
         {
@@ -189,7 +183,6 @@
             $_SESSION['message']='Tarea cargada correctamente';
             $_SESSION['message_type']='warning';
             $_SESSION['rol']='alumno';
-            //header("Location: index.php");
         }
 
         public function downloadTask($taskID)

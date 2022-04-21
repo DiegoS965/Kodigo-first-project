@@ -9,7 +9,7 @@
 
         public function setUp():void
         {
-            //$this->data = new CrudController(new Connection);
+            
         }
 
         public function testSaveTask()
@@ -59,26 +59,6 @@
 
             $this->assertSame($updatedTaskData,$result);
         } 
-
-        /* public function testDeleteTask($newData)
-        {
-            $con = $this->getMockBuilder(con::class)
-                ->disableOriginalConstructor()
-                ->getMock();
-            $expectedQuery = "DELETE FROM tareas WHERE IDTarea=$taskID";
-            $object = new CrudController(new Connection);
-            $result = $object->deleteTask();
-        } */
-
-        /* public function testTableTask($newData)
-        {
-            $con = $this->getMockBuilder(con::class)
-                ->disableOriginalConstructor()
-                ->getMock();
-            $expectedQuery = "SELECT * FROM tareas";
-            $object = new CrudController(new Connection);
-            $result = $object->tableTask();
-        } */
         
         public function testSaveStudent()
         {
@@ -121,25 +101,5 @@
 
             $this->assertSame($updatedStudentData,$result);
         }   
-
-        /* public function testDeleteStudent($newData)
-        {
-            $con = $this->getMockBuilder(con::class)
-                ->disableOriginalConstructor()
-                ->getMock();
-            $expectedQuery = "DELETE FROM alumnos WHERE IDAlumno=$studentID";
-            $object = new StudentCrudController(new Connection);
-            $result = $object->deleteStudent();
-        } */
-
-        /* public function testTableStudent($newData)
-        {
-            $con = $this->getMockBuilder(con::class)
-                ->disableOriginalConstructor()
-                ->getMock();
-            $expectedQuery = "SELECT * FROM alumnos";
-            $object = new StudentCrudController(new Connection);
-            $result = $object->tableStudent();
-        } */
     }
 ?>
