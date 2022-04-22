@@ -1,12 +1,12 @@
 <?php 
     include("includes/header.php");
-    require_once "controller.php";
+    require_once "Controllers/controller.php";
     if(isset($_POST['save_task']))
     {
-        //$save=CrudController::saveTask();
         $save=new CrudController(new Connection);
-        $save->saveTask();
-
+        $newData= array($_POST['taskName'],$_POST['descriptionTask'],$_POST['duedateTask']." ".$_POST['duetimeTask']);
+        $save->saveTask($newData);
+        header("Location: index.php");
     }
 ?>
 <div class="container">
@@ -35,7 +35,7 @@
                     <small id="timeHelp" class="form-text text-muted">Hora de entrega de la tarea</small>
                     <input type="time" name="duetimeTask" class="form-control"><br>
                 </div>
-                <input type="submit" class="btn btn-primary" name="save_task" value="Save Task">
+                <input type="submit" class="btn btn-primary" name="save_task" value="Guardar tarea">
             </form>
         </div>
     </div>

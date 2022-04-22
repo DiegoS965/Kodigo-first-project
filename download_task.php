@@ -1,10 +1,10 @@
 <?php
-    require_once ("controller.php");
+    require_once ("Controllers/controller.php");
 
     if(isset($_GET['IDTarea']))
     {
         $file=new FileController(new Connection);
-        $file->downloadTask();
+        $file->downloadTask($_GET['IDTarea']);
         
         $_SESSION['rol']='profesor';
 /*         header("Content-type: " . "pdf");

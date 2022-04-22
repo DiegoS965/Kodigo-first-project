@@ -1,11 +1,10 @@
 <?php include ("includes/header.php")?>
-<?php require_once ("db.php") ?>
-<?php require_once ("controller.php") ?>
-<?php require_once ("loginSystem.php");
+<?php require_once ("Controllers/controller.php") ?>
+<?php require_once ("Controllers/loginSystem.php");
 if (isset($_POST['send_credentials']))
 {
     $_SESSION['rol'] = new LoginSystem(new Connection);
-    $_SESSION['rol']->verifyLogin();
+    $_SESSION['rol']->verifyLogin($_POST['email'],$_POST['password']);
 }
 if($_SESSION['rol'] == "alumno"){?>
 <div class="container">
@@ -78,7 +77,7 @@ if($_SESSION['rol'] == "alumno"){?>
             <hr class="height:1px;color: black;background-color:black;">
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
         <?php if(isset($_SESSION['message'])) {?>
         <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
             <?= $_SESSION['message']?>
@@ -87,7 +86,9 @@ if($_SESSION['rol'] == "alumno"){?>
             </button>
         </div>
         <?php session_unset(); }?>
-        <a href="create_task.php" class="btn btn-success">Crear una nueva tarea</a><br>
+        <a href="create_task.php" class="btn btn-success">Crear una nueva tarea</a>
+        <a href="views/create_student.php" class="btn btn-success">Crear cuenta de alumno</a>
+        <a href="views/view_student.php" class="btn btn-success">Visualizar alumnos</a><br>
     </div><br>
     <div class="col-md-12">
         <table class="table table-hover bg-light text-dark">

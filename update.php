@@ -1,19 +1,19 @@
 <?php
-    require_once("db.php");
-    require_once("controller.php");
+    require_once("Controllers/controller.php");
+    include("includes/header.php");
     if(isset($_GET['IDTarea']))
     {
         $search=new CrudController(new Connection);
-        $search=$search->getTask();
+        $search=$search->getTask($_GET['IDTarea']);
     }
-    
     
     if(isset($_POST['update']))
     {
         $update=new CrudController(new Connection);
-        $update->updateTask();
+        $updatedTaskData=array($_POST['taskName'],$_POST['descriptionTask'],$_POST['duedateTask']." ".$_POST['duetimeTask'],$_POST['check']);
+        $update->updateTask($_GET['IDTarea'],$updatedTaskData);
+        header("Location: index.php");
     }
-    include("includes/header.php")
 ?>
 <div class="container">
     <div class="row">

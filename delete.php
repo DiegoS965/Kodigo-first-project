@@ -1,9 +1,9 @@
 <?php
-    include ("db.php");
-    require_once("controller.php");
+    require_once("Controllers/controller.php");
     if(isset($_GET['IDTarea']))
     {
         $delete=new CrudController(new Connection);
-        $delete->deleteTask();
+        $delete->deleteTask($_GET['IDTarea']);
+        header("Location: index.php");
     }
 ?>

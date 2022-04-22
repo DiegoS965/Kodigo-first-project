@@ -1,17 +1,17 @@
 <?php include ("includes/header.php")?>
-<?php require_once ("controller.php");
+<?php require_once ("Controllers/controller.php");
 
     if(isset($_GET['IDTarea']))
     {
         $search=new CrudController(new Connection);
-        $search=$search->getTask();
+        $search=$search->getTask($_GET['IDTarea']);
     }
-
 
     if(isset($_POST['uploads']))
     {
         $uploads=new FileController(new Connection);
-        $uploads->uploadTask();
+        $uploads->uploadTask($_GET['IDTarea'],$_POST['uploaded_file']);
+        header("Location: index.php");
     }
 ?>
 
